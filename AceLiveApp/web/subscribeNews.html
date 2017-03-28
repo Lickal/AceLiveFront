@@ -12,6 +12,19 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
     </head>
     <body>
- 
+        <form class="pure-form">
+        <fieldset>
+            <legend>A compact inline form</legend>
+
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+
+            <label for="remember">
+                <input id="remember" type="checkbox"> Remember me
+            </label>
+
+            <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+        </fieldset>
+    </form>
     </body>
 </html>

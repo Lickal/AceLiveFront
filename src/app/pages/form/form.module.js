@@ -12,7 +12,7 @@
   function routeConfig($stateProvider) {
     $stateProvider
         .state('form', {
-          url: '/form',
+          url: '/inscription',
           template : '<ui-view autoscroll="true" autoscroll-body-top></ui-view>',
           abstract: true,
           title: 'Inscription',
@@ -22,8 +22,9 @@
           },
         })
         .state('form.inputs', {
-          url: '/inputs',
+          url: '/newsletter',
           templateUrl: 'app/pages/form/inputs/inputs.html',
+          controller: 'InscriptionCtrl',
           title: 'Inscription Newsletter',
           sidebarMeta: {
             order: 0,

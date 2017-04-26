@@ -1,4 +1,4 @@
-<form>
+<form ng-controller="InscriptionCtrl">
   <div class="form-group">
     <label for="input01">ID</label>
     <input type="text" class="form-control" id="input01" placeholder="ID">
@@ -11,9 +11,13 @@
     <label for="input02">Age</label>
     <input type="text" class="form-control" id="input02" placeholder="Age">
   </div>
+  <div ng-repeat="newsletter in newsletters">
+    {{newsletter.name}}
+    <switch color="primary" ng-model="newsletter.check"></switch>
+  </div>
   <div class="input-group">
     <span class="input-group-btn">
-        <button class="btn btn-danger" type="button">S'inscrire</button>
+        <button class="btn btn-danger" type="button" ng-click="inscrire()">S'inscrire</button>
     </span>
   </div>
   <!-- <div class="form-group">

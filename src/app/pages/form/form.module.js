@@ -33,31 +33,21 @@
         .state('form.addGroup', {
           url: '/addGroup',
           templateUrl: 'app/pages/form/addGroup/addGroup.html',
-          controller: 'addGroupCtrl',
+          controller: 'AddGroupCtrl',
           title: 'Création de groupe',
           sidebarMeta: {
             order: 1,
           },
         })
-        // .state('form.layouts', {
-        //   url: '/layouts',
-        //   templateUrl: 'app/pages/form/layouts/layouts.html',
-        //   title: 'Form Layouts',
-        //   sidebarMeta: {
-        //     order: 100,
-        //   },
-        // })
-        // .state('form.wizard',
-        // {
-        //   url: '/wizard',
-        //   templateUrl: 'app/pages/form/wizard/wizard.html',
-        //   controller: 'WizardCtrl',
-        //   controllerAs: 'vm',
-        //   title: 'Form Wizard',
-        //   sidebarMeta: {
-        //     order: 200,
-        //   },
-        // })
+        .state('form.addMail', {
+            url: '/addMail',
+            templateUrl: 'app/pages/form/addMail/addMail.html',
+            controller: 'AddMailCtrl',
+            title: 'Ajout de mail',
+            sidebarMeta: {
+                order: 1,
+            },
+        })
         ;
   }
 })();

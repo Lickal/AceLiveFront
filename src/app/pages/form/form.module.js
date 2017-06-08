@@ -23,11 +23,20 @@
         })
         .state('form.inputs', {
           url: '/newsletter',
-          templateUrl: 'app/pages/form/inputs/inputs.html',
+          templateUrl: 'app/pages/form/inscriptionNewsletter/inscription.html',
           controller: 'InscriptionCtrl',
           title: 'Inscription Newsletter',
           sidebarMeta: {
             order: 0,
+          },
+        })
+        .state('form.addGroup', {
+          url: '/addGroup',
+          templateUrl: 'app/pages/form/addGroup/addGroup.html',
+          controller: 'addGroupCtrl',
+          title: 'Création de groupe',
+          sidebarMeta: {
+            order: 1,
           },
         })
         // .state('form.layouts', {

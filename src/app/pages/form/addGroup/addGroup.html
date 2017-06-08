@@ -1,4 +1,4 @@
-<form ng-controller="InscriptionCtrl">
+<form ng-controller="addGroupCtrl">
   <div class="form-group">
     <label for="input01">ID</label>
     <input type="text" class="form-control" id="input01" placeholder="ID">
@@ -11,9 +11,17 @@
     <label for="input02">Age</label>
     <input type="text" class="form-control" id="input02" placeholder="Age">
   </div>
+  <br>
   <div ng-repeat="newsletter in newsletters">
-    {{newsletter.name}}
-    <switch color="primary" ng-model="newsletter.check"></switch>
+    <div class="has-success">
+      <div class="checkbox">
+        <label class="custom-checkbox">
+          <input type="checkbox" id="{{newsletter.name}}" ng-checked="newsletter.checked">
+          <span>{{newsletter.name}}</span>
+        </label>
+      </div>
+    </div>
+    <br>
   </div>
   <div class="input-group">
     <span class="input-group-btn">

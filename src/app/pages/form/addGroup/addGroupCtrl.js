@@ -3,15 +3,15 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.form')
-      .controller('InscriptionCtrl', InscriptionCtrl);
+      .controller('addGroupCtrl', addGroupCtrl);
 
   /** @ngInject */
-  function InscriptionCtrl($scope, $http, $timeout, $element) {
+  function addGroupCtrl($scope, $http, $timeout, $element) {
     this.test = true;
     $scope.newsletters = [
       {
         id: 1,
-        name: "Newsletter 1",
+        name: "Newsletter d'inscription à la ferme des petits enfants géniaux",
         checked: false
       },{
         id: 2,
@@ -35,6 +35,7 @@
 
     $scope.inscrire = function () {
       // TODO
+      console.log("Test");
     };
   }
 })();

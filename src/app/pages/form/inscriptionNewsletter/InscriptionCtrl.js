@@ -35,7 +35,9 @@
 
     $scope.inscrire = function () {
       // TODO
-      console.log("Test");
+      if (inscriptionForm.input01.validity.valid && inscriptionForm.input02.validity.valid && inscriptionForm.input03.validity.valid) {
+        console.log("Test");
+      }
     };
   }
 })();

@@ -8,34 +8,40 @@
   /** @ngInject */
   function addGroupCtrl($scope, $http, $timeout, $element) {
     this.test = true;
-    $scope.newsletters = [
+    $scope.participants = [
       {
         id: 1,
-        name: "Newsletter d'inscription à la ferme des petits enfants géniaux",
+        name: "Patrick",
         checked: false
       },{
         id: 2,
-        name: "Newsletter 2",
+        name: "René",
         checked: true
       },{
         id: 3,
-        name: "Newsletter 3",
+        name: "Girard",
         checked: true
       },{
         id: 4,
-        name: "Newsletter 4",
+        name: "André",
         checked: true
       },{
         id: 5,
-        name: "Newsletter 5",
+        name: "Eugène",
         checked: true
+      },{
+        id: 6,
+        name: "Francis",
+        checked: false
       }
     ];
 
 
     $scope.inscrire = function () {
       // TODO
-      console.log("Test");
+      if (addGroupForm.group01.validity.valid) {
+        console.log("Test");
+      }
     };
   }
 })();

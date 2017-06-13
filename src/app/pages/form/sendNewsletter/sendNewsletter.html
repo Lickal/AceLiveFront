@@ -1,0 +1,61 @@
+<div class="widgets">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div
+          ba-panel
+          ba-panel-title="Créer un groupe"
+          ba-panel-class="with-scroll">
+          <form name="addGroupForm" ng-controller="SendNewsletterCtrl">
+            <div class="form-group ">
+              <ui-select ng-model="selectpickerVm.withSearchItem.selected"
+                         class="btn-group bootstrap-select form-control"
+                         ng-disabled="false"
+                         append-to-body="true"
+                         search-enabled="true">
+                <ui-select-match placeholder="Select With Search">
+                  {{$select.selected.label}}
+                </ui-select-match>
+                <ui-select-choices
+                    repeat="withSearchItem in selectpickerVm.selectWithSearchItems | filter: $select.search">
+                  <span ng-bind-html="withSearchItem.label"></span>
+                </ui-select-choices>
+              </ui-select>
+            </div>
+            <div class="input-group">
+              <span class="input-group-btn">
+                <input class="btn btn-danger" type="submit" ng-click="inscrire()" value="S'inscrire" />
+                  <!-- <button class="btn btn-danger" type="button" ng-click="inscrire()">S'inscrire</button> -->
+              </span>
+            </div>
+            <!-- <div class="form-group">
+              <label for="input03">Rounded Corners</label>
+              <input type="text" class="form-control form-control-rounded" id="input03" placeholder="Rounded Corners">
+            </div>
+            <div class="form-group">
+              <label for="input04">With help</label>
+              <input type="text" class="form-control" id="input04" placeholder="With help">
+              <span class="help-block sub-little-text">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+            </div>
+            <div class="form-group">
+              <label for="input05">Disabled Input</label>
+              <input type="text" class="form-control" id="input05" placeholder="Disabled Input" disabled>
+            </div>
+
+            <div class="form-group">
+              <label for="textarea01">Textarea</label>
+              <textarea placeholder="Default Input" class="form-control" id="textarea01"></textarea>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control input-sm" id="input2" placeholder="Small Input">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control input-lg" id="input4" placeholder="Large Input">
+            </div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>

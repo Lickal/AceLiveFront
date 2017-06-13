@@ -39,6 +39,15 @@
             order: 1,
           },
         })
+        .state('form.sendNewsletter', {
+          url: '/sendNewsletter',
+          templateUrl: 'app/pages/form/sendNewsletter/sendNewsletter.html',
+          controller: 'SendNewsletterCtrl',
+          title: 'Envoie de Newsletter',
+          sidebarMeta: {
+            order: 1,
+          },
+        })
         .state('form.addMail', {
             url: '/addMail',
             templateUrl: 'app/pages/form/addMail/addMail.html',

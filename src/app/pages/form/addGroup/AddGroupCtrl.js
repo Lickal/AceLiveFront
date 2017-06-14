@@ -3,10 +3,10 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.form')
-      .controller('addGroupCtrl', addGroupCtrl);
+      .controller('AddGroupCtrl', AddGroupCtrl);
 
   /** @ngInject */
-  function addGroupCtrl($scope, $http, $timeout, $element) {
+  function AddGroupCtrl($scope, $http, $timeout, $element) {
     this.test = true;
     $scope.participants = [
       {

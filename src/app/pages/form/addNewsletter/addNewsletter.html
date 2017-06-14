@@ -1,13 +1,30 @@
 <div class="widgets">
     <div class="row">
         <div class="col-md-12">
-            <div ba-panel ba-panel-title="Standard Fields" ba-panel-class="with-scroll">
+            <div ba-panel ba-panel-title="Création d'une Newsletter" ba-panel-class="with-scroll">
+                <form name="addNewsletterForm" ng-controller="AddNewsletterCtrl">
+                    <div class="form-group">
+                        <label for="objet_newsletter">Objet *</label>
+                        <input type="text" class="form-control" id="objet_newsletter" name="objet_newsletter" placeholder="Exemple : Evènement pétanque" ng-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="date_newsletter">Date d'envoie *</label>
+                        <input type="date" class="form-control" id="date_newsletter" name="date_newsletter" placeholder="" ng-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="pj_newsletter">Pièce Jointe</label>
+                        <input type="file" class="form-control" id="pj_newsletter" name="pj_newsletter" placeholder="" ng-required="false">
+                    </div>
+                    <div class="form-group">
+                        <label for="description_newsletter">Description *</label>
+                        <input type="text" class="form-control" id="description_newsletter" name="description_newsletter" placeholder="" ng-required="true">
+                    </div>
 
-
-
-
+                    <span class="input-group-btn">
+                        <input class="btn btn-danger" type="submit" ng-click="createNewsletter()" value="Valider" />
+                    </span>
+                </form>
             </div>
         </div>
     </div>
-
 </div>

@@ -7,9 +7,9 @@
   /** @ngInject */
   function AddMailCtrl($scope, $http, $timeout, $element) {
 
-    $scope.addMail = function () {
+    $scope.createNewsletter = function () {
       // TODO
-      console.log("Test");
+      console.log("Etape 3");
     };
   }
 })();

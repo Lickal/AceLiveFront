@@ -6,7 +6,7 @@
       .controller('InscriptionCtrl', InscriptionCtrl);
 
   /** @ngInject */
-  function InscriptionCtrl($scope, $http, $timeout, $element) {
+  function InscriptionCtrl($scope, $http, $timeout, $element, webService) {
     this.test = true;
     $scope.newsletters = [
       {
@@ -35,6 +35,17 @@
 
     $scope.inscrire = function () {
       // TODO
+      var user = {};
+      user.username = "toto";
+      user.password = "motdepasse";
+      webService.Login(user,
+        function (data) {
+          console.log("ca a marché !! Youpi, mes données sont dans la variable data :)");
+        },
+        function () {
+          console.log("Oups, erreur");
+        }
+      );
       if (inscriptionForm.input01.validity.valid && inscriptionForm.input02.validity.valid && inscriptionForm.input03.validity.valid) {
         console.log("Test");
       }

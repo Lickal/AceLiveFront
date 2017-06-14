@@ -1,13 +1,24 @@
 <div class="widgets">
     <div class="row">
         <div class="col-md-12">
-            <div ba-panel ba-panel-title="Standard Fields" ba-panel-class="with-scroll">
+            <div ba-panel ba-panel-title="Ajout d'une Campagne" ba-panel-class="with-scroll">
+                <form name="addCampagnepForm" ng-controller="AddCampagneCtrl">
+                    <div class="form-group">
+                        <label for="name_campagne">Nom de la Campagne</label>
+                        <input type="text" class="form-control" id="name_campagne" name="name_campagne" placeholder="Exemple : Films" ng-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="description_campagne">Description de la Campagne</label>
+                        <input type="text" class="form-control" id="description_campagne" name="description_campagne" placeholder="" ng-required="true">
+                    </div>
 
+                    <p style="color: red"> Faire une liste des Newsletters que le WS nous remonte </p>
 
-
-
+                  <span class="input-group-btn">
+                    <input class="btn btn-danger" type="submit" ng-click="create()" value="Valider" />
+                  </span>
+                </form>
             </div>
         </div>
     </div>
-
 </div>

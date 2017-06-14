@@ -8,7 +8,7 @@
     /** @ngInject */
     function AddCampagneCtrl($scope, $http, $timeout, $element) {
 
-        $scope.addMail = function () {
+        $scope.create = function () {
             // TODO
             console.log("Test");
         };

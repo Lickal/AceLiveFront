@@ -2,18 +2,30 @@
     <div class="row">
         <div class="col-md-12">
 
-            <div ba-panel ba-panel-title="Standard Fields" ba-panel-class="with-scroll">
-                <form ng-controller="AddMailnCtrl">
+            <div ba-panel ba-panel-title="Ajout de User Mail Via Fichier Excel" ba-panel-class="with-scroll">
+                <form ng-controller="AddMailCtrl">
                     <div class="form-group">
-
-                        <label class="control-label">Select File</label>
-                        <input id="input-7" name="input7[]" multiple type="file" class="file file-loading" data-allowed-file-extensions='["csv"]'>
-
-                        <input class="btn btn-danger" type="submit" ng-click="" value="Ajouter" />
-
-
+                        <label for="import_mail">Pièce Jointe</label>
+                        <input type="file" class="form-control" id="import_mail" name="import_mail" placeholder="" ng-required="true">
                     </div>
-
+                    <span class="input-group-btn">
+                        <input class="btn btn-danger" type="submit" ng-click="import()" value="Ajouter" />
+                  </span>
+                </form>
+            </div>
+            <div ba-panel ba-panel-title="Ajout de User Mail à la main" ba-panel-class="with-scroll">
+                <form ng-controller="AddMailCtrl">
+                    <div class="form-group">
+                        <label for="nom_mail">Nom</label>
+                        <input type="text" class="form-control" id="nom_mail" name="nom_mail" placeholder="" ng-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="mail_mail">Email</label>
+                        <input type="email" class="form-control" id="mail_mail" name="mail_mail" placeholder="" ng-required="true">
+                    </div>
+                    <span class="input-group-btn">
+                        <input class="btn btn-danger" type="submit" ng-click="add_mail()" value="Ajouter" />
+                  </span>
                 </form>
             </div>
         </div>

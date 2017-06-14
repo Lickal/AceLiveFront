@@ -8,9 +8,14 @@
   /** @ngInject */
   function AddMailCtrl($scope, $http, $timeout, $element) {
 
-    $scope.addMail = function () {
+    $scope.import = function () {
       // TODO
-      console.log("Test");
+      console.log("Etape 1");
+    };
+
+    $scope.add_mail = function () {
+        // TODO
+        console.log("Etape 2");
     };
   }
 })();

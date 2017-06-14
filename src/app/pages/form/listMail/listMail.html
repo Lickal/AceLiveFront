@@ -1,11 +1,60 @@
 <div class="widgets">
     <div class="row">
         <div class="col-md-12">
-            <div ba-panel ba-panel-title="Standard Fields" ba-panel-class="with-scroll">
-
-
-
-
+            <div ba-panel ba-panel-title="Liste des Users" ba-panel-class="with-scroll">
+                <div class="horizontal-scroll">
+                    <div class="form-group select-page-size-wrap ">
+                        <label>Rows on page
+                            <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+                                    ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+                            </select>
+                        </label>
+                    </div>
+                    <table class="table" st-table="smartTableData">
+                        <thead>
+                        <tr class="sortable ">
+                            <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+                            <th st-sort="firstName">Id</th>
+                            <th st-sort="lastName">Name</th>
+                            <th st-sort="username">Mail</th>
+                            <th st-sort="age">Age</th>
+                            <th st-sort="email">Action</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th><input st-search="firstName" placeholder="Search Id" class="input-sm form-control search-input"
+                                       type="search"/></th>
+                            <th><input st-search="lastName" placeholder="Search Name" class="input-sm form-control search-input"
+                                       type="search"/></th>
+                            <th><input st-search="username" placeholder="Search Mail" class="input-sm form-control search-input"
+                                       type="search"/></th>
+                            <th><input st-search="age" placeholder="Search Age" class="input-sm form-control search-input" type="search"/>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in smartTableData">
+                            <td class="table-id">{{item.id}}</td>
+                            <td>{{item.firstName}}</td>
+                            <td>{{item.lastName}}</td>
+                            <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
+                            <td>{{item.lastName}}</td>
+                            <td>
+                                <div class="buttons" ng-show="!rowform.$visible">
+                                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
+                                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Delete</button>
+                                </div></td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="6" class="text-center">
+                                <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

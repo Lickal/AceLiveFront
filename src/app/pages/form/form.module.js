@@ -43,7 +43,7 @@
             url: '/addMail',
             templateUrl: 'app/pages/form/addMail/addMail.html',
             controller: 'AddMailCtrl',
-            title: 'Ajout d un User Mail',
+            title: 'Ajout d\'un User Mail',
             sidebarMeta: {
                 order: 2,
             },

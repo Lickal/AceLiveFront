@@ -1,11 +1,11 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.form')
-        .controller('ListCampagneCtrl', ListCampagneCtrl);
+    angular.module('BlurAdmin.pages.group')
+        .controller('ListGroupCtrl', ListGroupCtrl);
 
     /** @ngInject */
-    function ListCampagneCtrl($scope, $http, $timeout, $element) {
+    function ListGroupCtrl($scope, $http, $timeout, $element) {
 
         $scope.smartTablePageSize = 10;
 

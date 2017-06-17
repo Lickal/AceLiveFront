@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.form')
+    angular.module('BlurAdmin.pages.campagne')
         .controller('AddCampagneCtrl', AddCampagneCtrl);
 
     /** @ngInject */

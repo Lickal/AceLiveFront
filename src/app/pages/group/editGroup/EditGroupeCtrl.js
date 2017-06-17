@@ -1,12 +1,11 @@
-
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.form')
-        .controller('EditCampagneCtrl', EditCampagneCtrl);
+    angular.module('BlurAdmin.pages.group')
+        .controller('EditGroupeCtrl', EditGroupeCtrl);
 
     /** @ngInject */
-    function EditCampagneCtrl($scope, $http, $timeout, $element) {
+    function EditGroupeCtrl($scope, $http, $timeout, $element) {
 
         $scope.addMail = function () {
             // TODO

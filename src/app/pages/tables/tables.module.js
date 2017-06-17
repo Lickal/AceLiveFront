@@ -16,7 +16,7 @@
           template : '<ui-view  autoscroll="true" autoscroll-body-top></ui-view>',
           abstract: true,
           controller: 'TablesPageCtrl',
-          title: 'Tables',
+          title: 'Exemple : Tables',
           sidebarMeta: {
             icon: 'ion-grid',
             order: 300,

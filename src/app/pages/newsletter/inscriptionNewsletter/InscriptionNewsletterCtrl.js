@@ -3,10 +3,10 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.form')
-      .controller('InscriptionCtrl', InscriptionCtrl);
+      .controller('InscriptionNewsletterCtrl', InscriptionNewsletterCtrl);
 
   /** @ngInject */
-  function InscriptionCtrl($scope, $http, $timeout, $element, webService) {
+  function InscriptionNewsletterCtrl($scope, $http, $timeout, $element, webService) {
     this.test = true;
     $scope.newsletters = [
       {

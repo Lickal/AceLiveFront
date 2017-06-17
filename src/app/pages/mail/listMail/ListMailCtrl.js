@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.form')
+    angular.module('BlurAdmin.pages.mail')
         .controller('ListMailCtrl', ListMailCtrl);
 
     /** @ngInject */

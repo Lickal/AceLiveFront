@@ -7,7 +7,10 @@
 
   angular.module('BlurAdmin.pages', [
     'ui.router',
-
+      'BlurAdmin.pages.campagne',
+      'BlurAdmin.pages.group',
+      'BlurAdmin.pages.newsletter',
+      'BlurAdmin.pages.mail',
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.ui',
     'BlurAdmin.pages.components',
@@ -44,7 +47,7 @@
       }]
     });
     baSidebarServiceProvider.addStaticItem({
-      title: 'Menu Level 1',
+      title: 'Exemple : Menu Level 1',
       icon: 'ion-ios-more',
       subMenu: [{
         title: 'Menu Level 1.1',

@@ -1,24 +1,36 @@
 <div class="widgets">
     <div class="row">
-        <div class="col-md-12">
-            <div ba-panel ba-panel-title="Ajout d'une Campagne" ba-panel-class="with-scroll">
-                <form name="addCampagnepForm" ng-controller="AddCampagneCtrl">
+        <form name="addCampagnepForm" ng-controller="AddCampagneCtrl">
+            <div class="col-md-6">
+                <div ba-panel ba-panel-class="with-scroll">
                     <div class="form-group">
-                        <label for="name_campagne">Nom de la Campagne</label>
-                        <input type="text" class="form-control" id="name_campagne" name="name_campagne" placeholder="Exemple : Films" ng-required="true">
+                        <label for="name_campagne">Nom de la Campagne * : </label>
+                        <input type="text" class="form-control" id="name_campagne" name="name_campagne"
+                               placeholder="Exemple : Films" ng-required="true">
                     </div>
                     <div class="form-group">
-                        <label for="description_campagne">Description de la Campagne</label>
-                        <input type="text" class="form-control" id="description_campagne" name="description_campagne" placeholder="" ng-required="true">
+                        <label for="message">Description * : </label>
+                        <textarea ng-model="options.msg" class="form-control" id="message" rows="3"
+                                  placeholder="Entrer une description ..."></textarea>
                     </div>
-
-                    <p style="color: red"> Faire une liste des Newsletters que le WS nous remonte </p>
-
-                  <span class="input-group-btn">
-                    <input class="btn btn-danger" type="submit" ng-click="create()" value="Valider" />
-                  </span>
-                </form>
+                </div>
             </div>
-        </div>
+            <div class="col-md-6" ng-controller="AddCampagneCtrl as selectpickerVm">
+                <div ba-panel ba-panel-class="with-scroll">
+                    <div class="form-group" style="height: 11em;">
+                        <label for="message">Veuillez sélectionner les différentes Newsletters à ajouter dans la Campagne
+                            * : </label>
+                        <select class="form-control" title="Sélection multiple" multiple selectpicker
+                                ng-model="selectpickerVm.multipleSelectedItems"
+                                ng-options="item as item.label for item in selectpickerVm.standardSelectItems">
+                        </select>
+                    </div>
+                    <span class="input-group-btn">
+                    <input class="btn btn-danger" type="submit" ng-click="create()" value="Valider"/>
+                  </span>
+
+                </div>
+            </div>
+        </form>
     </div>
 </div>

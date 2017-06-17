@@ -23,7 +23,7 @@
             controller: 'AddCampagneCtrl',
             title: 'Ajout de Campagne',
             sidebarMeta: {
-                order: 0,
+                order: 1,
             },
         })
         .state('campagne.editCampagne', {
@@ -32,7 +32,7 @@
             controller: 'EditCampagneCtrl',
             title: 'Modifier la Campagne',
             sidebarMeta: {
-                order: 1,
+                order: 2,
             },
         })
         .state('campagne.listCampagne', {
@@ -41,7 +41,7 @@
             controller: 'ListCampagneCtrl',
             title: 'Liste de Campagne',
             sidebarMeta: {
-                order: 2,
+                order: 0,
             },
         })
         ;

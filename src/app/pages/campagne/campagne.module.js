@@ -13,7 +13,7 @@
             abstract: true,
             title: 'Campagne',
             sidebarMeta: {
-                icon: 'ion-ios-location-outline',
+                icon: 'ion-map',
                 order: 1,
             },
         })

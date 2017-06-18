@@ -13,7 +13,7 @@
             abstract: true,
             title: 'Newsletter',
             sidebarMeta: {
-                icon: 'ion-ios-location-outline',
+                icon: 'ion-android-list',
                 order: 4,
             },
         })

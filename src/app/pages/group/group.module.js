@@ -11,9 +11,9 @@
             url: '/group',
             templateUrl: 'app/pages/group/group.html',
             abstract: true,
-            title: 'Group',
+            title: 'Groupe',
             sidebarMeta: {
-                icon: 'ion-ios-location-outline',
+                icon: 'ion-person-stalker',
                 order: 3,
             },
         })

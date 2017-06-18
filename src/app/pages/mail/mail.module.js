@@ -13,7 +13,7 @@
             abstract: true,
             title: 'Mail',
             sidebarMeta: {
-                icon: 'ion-ios-location-outline',
+                icon: 'ion-android-mail',
                 order: 2,
             },
         })

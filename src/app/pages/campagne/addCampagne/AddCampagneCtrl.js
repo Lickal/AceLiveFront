@@ -10,27 +10,36 @@
 
         var vm = this;
 
-        //list_newsletter();
-
         $scope.list_newsletter = function () {
 
-            webService.liste_newsletter(
-                function (data) {
-
-                    // TODO il faudrait faire ça mais en générique avec le json qu'on recoit
+            $.ajax({
+                url : 'http://localhost:8080/acelive/webresources/webservices.newsletter',
+                type : 'GET',
+                dataType : 'xml',
+                success : function(data, statut){
+                    data = xml2json.parse(data);
+                    console.log(data);
+                    console.log(data.newsletterss.newsletters[0].newsletterTitle);
 
                     vm.standardSelectItems = [
+
                         { label: 'Option 1', value: 1 },
                         { label: 'Option 2', value: 2 },
                         { label: 'Option 3', value: 3 },
                         { label: 'Option 4', value: 4 },
                     ];
+
+
                 },
-                function () {
-                    console.log("Oups, erreur");
+
+                error : function(resultat, statut, erreur){
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
                 }
-            );
+
+            });
         };
+
+        $scope.list_newsletter();
 
         $scope.create = function () {
 

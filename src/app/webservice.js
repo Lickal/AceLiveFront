@@ -2,7 +2,7 @@ var webService = angular.module('webService', []);
 
 
 webService.factory('webService', ['$http', function($http) {
-  var URLserveur = "http://192.168.1.20:3306/aceliveback/webresources/webservices";
+  var URLserveur = "http://localhost:8080/acelive/webresources/webservices";
 
   function callWebservice(method, url, postData, successCallback, errorCallback) {
     // Appel général du webService, fonction qu'on appel à chauqe fois
@@ -18,6 +18,7 @@ webService.factory('webService', ['$http', function($http) {
             // Call WS.
             $http(callWS).
             success(function(data, status, headers, config) {
+              data = data.xml2json(xml);
                 successCallback(data);
             }).
             error(function(data, status, headers, config) {
@@ -28,7 +29,7 @@ webService.factory('webService', ['$http', function($http) {
         return {
           // Et les définitions différents WebServices
             Login: function Login(user, successCallback, errorCallback) {
-              var wsURL = URLserveur + "/login";
+              var wsURL = URLserveur + ".administrateur";
               var postData = {};
 
 

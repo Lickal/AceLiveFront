@@ -6,7 +6,7 @@
         .controller('AddCampagneCtrl', AddCampagneCtrl);
 
     /** @ngInject */
-    function AddCampagneCtrl($scope, $http, $timeout, $element, webService) {
+    function AddCampagneCtrl($scope, $http, $timeout, $element, webService, xml2json) {
 
         var vm = this;
 
@@ -35,15 +35,22 @@
         $scope.create = function () {
 
             // TODO il faut récupérer les valeurs du form pour les mettre dans ce WS
-            var campagne;
-            webService.created_campagne(campagne,
-                function (data) {
-                    $window.location.href = '/listCampagne.html';
-                },
-                function () {
-                    console.log("Oups, erreur");
-                }
-            );
+            var user = {};
+            $.ajax({
+               url : 'http://localhost:8080/acelive/webresources/webservices.administrateur',
+               type : 'GET',
+               dataType : 'xml',
+               success : function(data, statut){ // success est toujours en place, bien sûr !
+                    console.log(data);
+                    data = xml2json.parse(data);
+                   console.log(data);
+               },
+
+               error : function(resultat, statut, erreur){
+
+               }
+
+            });
         };
     }
 })();

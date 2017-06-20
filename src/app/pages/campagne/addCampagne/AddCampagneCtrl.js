@@ -37,7 +37,7 @@
             // TODO il faut récupérer les valeurs du form pour les mettre dans ce WS
             var user = {};
             $.ajax({
-               url : 'http://localhost:8080/acelive/webresources/webservices.administrateur',
+               url : webService.URLserveur + '.administrateur',
                type : 'GET',
                dataType : 'xml',
                success : function(data, statut){ // success est toujours en place, bien sûr !

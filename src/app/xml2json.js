@@ -44,6 +44,28 @@ webService.factory('xml2json', ['$http', function($http) {
       		}
       	}
       	return obj;
+      },
+      deparse: function deparse(obj) {
+        var xml = '';
+
+        for (var prop in obj) {
+            if (!obj.hasOwnProperty(prop)) {
+                continue;
+            }
+
+            if (obj[prop] == undefined)
+                continue;
+
+            xml += "<" + prop + ">";
+            if (typeof obj[prop] == "object")
+                xml += deparse(new Object(obj[prop]));
+            else
+                xml += obj[prop];
+
+            xml += "</" + prop + ">";
+        }
+
+        return xml;
       }
   };
 }]);

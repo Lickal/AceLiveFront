@@ -7,6 +7,7 @@
 
   angular.module('BlurAdmin.pages', [
     'ui.router',
+      'BlurAdmin.pages.auth',
       'BlurAdmin.pages.campagne',
       'BlurAdmin.pages.group',
       'BlurAdmin.pages.newsletter',

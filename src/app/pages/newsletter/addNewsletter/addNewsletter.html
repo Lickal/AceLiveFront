@@ -5,19 +5,19 @@
                 <form name="addNewsletterForm" ng-controller="AddNewsletterCtrl">
                     <div class="form-group">
                         <label for="objet_newsletter">Objet *</label>
-                        <input type="text" class="form-control" id="objet_newsletter" name="objet_newsletter" placeholder="Exemple : Evènement pétanque" ng-required="true">
+                        <input type="text" ng-model="objet_newsletter" class="form-control" id="objet_newsletter" name="objet_newsletter" placeholder="Exemple : Evènement pétanque" ng-required="true">
                     </div>
                     <div class="form-group">
                         <label for="date_newsletter">Date d'envoie *</label>
-                        <input type="date" class="form-control" id="date_newsletter" name="date_newsletter" placeholder="" ng-required="true">
+                        <input type="date" ng-model="date_newsletter" class="form-control" id="date_newsletter" name="date_newsletter" placeholder="" ng-required="true">
                     </div>
                     <div class="form-group">
                         <label for="pj_newsletter">Pièce Jointe</label>
-                        <input type="file" class="form-control" id="pj_newsletter" name="pj_newsletter" placeholder="" ng-required="false">
+                        <input type="file" ng-model="pj_newsletter" class="form-control" id="pj_newsletter" name="pj_newsletter" placeholder="" ng-required="false">
                     </div>
                     <div class="form-group">
                         <label for="description_newsletter">Description *</label>
-                        <input type="text" class="form-control" id="description_newsletter" name="description_newsletter" placeholder="" ng-required="true">
+                        <input type="text" ng-model="description_newsletter" class="form-control" id="description_newsletter" name="description_newsletter" placeholder="" ng-required="true">
                     </div>
 
                     <span class="input-group-btn">

@@ -13,30 +13,30 @@
                     <table class="table" st-table="smartTableData">
                         <thead>
                             <tr class="sortable ">
-                                <th class="table-id" st-sort="id" st-sort-default="true">Id</th>
-                                <th st-sort="name">Name</th>
-                                <th st-sort="mail">Mail</th>
-                                <th st-sort="age">Age</th>
+                                <th class="table-id" st-sort="campaignId" st-sort-default="true">Id</th>
+                                <th st-sort="campaignName">Name</th>
+                                <th st-sort="campaignDescription">Description</th>
+                                <th st-sort="campaignClic">Clic</th>
                                 <th st-sort="action"></th>
                             </tr>
                             <tr>
-                                <th><input st-search="id" placeholder="Recherche Id" class="input-sm form-control search-input" type="search"/></th>
-                                <th><input st-search="name" placeholder="Recherche Name" class="input-sm form-control search-input" type="search"/></th>
-                                <th><input st-search="mail" placeholder="Recherche Mail" class="input-sm form-control search-input" type="search"/></th>
-                                <th><input st-search="age" placeholder="Recherche Age" class="input-sm form-control search-input" type="search"/>
+                                <th><input st-search="campaignId" placeholder="Recherche Id" class="input-sm form-control search-input" type="search"/></th>
+                                <th><input st-search="campaignName" placeholder="Recherche Name" class="input-sm form-control search-input" type="search"/></th>
+                                <th><input st-search="campaignDescription" placeholder="Recherche Description" class="input-sm form-control search-input" type="search"/></th>
+                                <th><input st-search="campaignClic" placeholder="Recherche Clic" class="input-sm form-control search-input" type="search"/>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="item in smartTableData">
-                            <td class="table-id">{{item.id}}</td>
-                            <td>{{item.name}}</td>
-                            <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
-                            <td>{{item.age}}</td>
+                            <td class="table-id">{{item.campaignId}}</td>
+                            <td>{{item.campaignName}}</td>
+                            <td>{{item.campaignDescription}}</td>
+                            <td>{{item.campaignClic}}</td>
                             <td>
                                 <div class="buttons" ng-show="!rowform.$visible">
-                                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="editCampagne()">Edit</button>
-                                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteCampagne()">Delete</button>
+                                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="editCampagne(item.campaignId)">Edit</button>
+                                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="deleteCampagne(item.campaignId)">Delete</button>
                                 </div></td>
                             </tr>
                         </tbody>

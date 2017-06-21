@@ -5,72 +5,63 @@
         .controller('ListCampagneCtrl', ListCampagneCtrl);
 
     /** @ngInject */
-    function ListCampagneCtrl($scope, $http, $timeout, $element) {
+    function ListCampagneCtrl($scope, $http, $timeout, $element, webService) {
 
-        //listCampagne();
+        $scope.smartTablePageSize = 10;
+
+        $scope.smartTableData = [];
 
         $scope.listCampagne = function () {
 
-            // TODO
-            webService.liste_campagne(
-                function (data) {
-
-                    $scope.smartTablePageSize = 10;
-
-                    $scope.smartTableData = [
-                        {
-                            id: 1,
-                            name: 'Mark',
-                            mail: '@mdo',
-                            age: '28'
-                        },
-                        {
-                            id: 2,
-                            name: 'Jacob',
-                            mail: '@fat',
-                            age: '45'
-                        },
-                        {
-                            id: 3,
-                            name: 'Larry',
-                            mail: '@twitter',
-                            age: '18'
-                        }
-                    ];
+            $.ajax({
+                url: webService.URLserveur + 'campaign',
+                type: 'GET',
+                dataType: 'json',
+                async:false,
+                success: function (data, statut) {
+                    $scope.smartTableData=data;
                 },
-                function () {
-                    console.log("Oups, erreur");
+                error: function (resultat, statut, erreur) {
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
                 }
-            );
-        };
-/*
-        $scope.deleteCampagne = function () {
-
-            // TODO
-            var campagne;
-            webService.deleteCampagne(campagne,
-                function (data) {
-                    $window.location.href = '/listCampagne.html';
-                },
-                function () {
-                    console.log("Oups, erreur");
-                }
-            );
+            });
         };
 
-        $scope.editCampagne = function () {
+        $scope.listCampagne();
 
-            // TODO
-            var campagne;
-            webService.editCampagne(campagne,
-                function (data) {
-                    $window.location.href = '/listCampagne.html';
+        $scope.deleteCampagne = function (id) {
+
+            $.ajax({
+                url: webService.URLserveur + 'campaign/'+id,
+                type: 'DELETE',
+                dataType: 'json',
+                async:false,
+                success: function (data, statut) {
+                    console.log("Ok ;)");
+                    window.location.reload()
                 },
-                function () {
-                    console.log("Oups, erreur");
+                error: function (resultat, statut, erreur) {
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
                 }
-            );
+            });
         };
-        */
+
+        $scope.editCampagne = function (id) {
+
+            // TODO Campaign entity
+            $.ajax({
+                url: webService.URLserveur + 'campaign/'+id,
+                type: 'PUT',
+                dataType: 'json',
+                async:false,
+                success: function (data, statut) {
+                    console.log("Ok ;)");
+                    document.location.href="editCampagne.html"
+                },
+                error: function (resultat, statut, erreur) {
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                }
+            });
+        };
     }
 })();

@@ -2,10 +2,10 @@
     'use strict';
 
     angular.module('BlurAdmin.pages.group')
-        .controller('EditGroupeCtrl', EditGroupeCtrl);
+        .controller('EditGroupCtrl', EditGroupCtrl);
 
     /** @ngInject */
-    function EditGroupeCtrl($scope, $http, $timeout, $element) {
+    function EditGroupCtrl($scope, $http, $timeout, $element) {
 
         $scope.addMail = function () {
             // TODO

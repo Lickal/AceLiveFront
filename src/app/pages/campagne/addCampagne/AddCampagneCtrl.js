@@ -11,6 +11,8 @@
 
         $scope.standardSelectItems = [];
         $scope.multipleSelectedItems = [];
+        $scope.name_campaign = "";
+        $scope.description_campaign = "";
 
         $scope.list_newsletter = function () {
 
@@ -40,9 +42,6 @@
 
         //Récupération des valeurs du form
 
-        $scope.name_campaign;
-        $scope.description_campaign;
-
         $scope.create = function () {
 
             // TODO il faut récupérer les valeurs du form pour les mettre dans ce WS
@@ -55,9 +54,10 @@
                 $scope.multipleSelectedItems[$scope.multipleSelectedItems.length] = e.options[i].value;
               }
             }
-            var strUser = e.options[e.selectedIndex].value;
 
-            console.log($scope.multipleSelectedItems);
+            data_campagne.campaignName = $scope.name_campaign;
+            console.log($scope.name_campaign);
+            data_campagne.campaignDescription = $scope.description_campaign;
 
             $.ajax({
                 url: webService.URLserveur + 'campaign',

@@ -8,7 +8,9 @@
     function AddCampagneCtrl($scope, $http, $timeout, $element, webService) {
 
         var valueNews = [];
-        var vm = this;
+
+        $scope.standardSelectItems = [];
+        $scope.multipleSelectedItems = [];
 
         $scope.list_newsletter = function () {
 
@@ -21,11 +23,11 @@
                     if (data.length) {
                         for (var i = 0; i < data.length; i++) {
                             valueNews[i] = {};
-                            valueNews[i].label = data[i].newsletterId + " - " + data[i].newsletterTitle;
-                            valueNews[i].value = i+1;
+                            valueNews[i].label = data[i].newsletterTitle;
+                            valueNews[i].value = data[i].newsletterId;
                         }
                     }
-                    vm.standardSelectItems = valueNews;
+                    $scope.standardSelectItems = valueNews;
                 },
                 error: function (resultat, statut, erreur) {
                     console.log("Oups, nous avons constaté l'erreur : " + erreur);
@@ -46,8 +48,19 @@
             // TODO il faut récupérer les valeurs du form pour les mettre dans ce WS
             var data_campagne = {};
 
+            var e = document.getElementById("newsletter");
+            $scope.multipleSelectedItems = [];
+            for (var i = 0; i < e.options.length; i++) {
+              if (e.options[i].selected) {
+                $scope.multipleSelectedItems[$scope.multipleSelectedItems.length] = e.options[i].value;
+              }
+            }
+            var strUser = e.options[e.selectedIndex].value;
+
+            console.log($scope.multipleSelectedItems);
+
             $.ajax({
-                url: webService.URLserveur + '.campaign',
+                url: webService.URLserveur + 'campaign',
                 type: 'POST',
                 data: data_campagne,
                 async : false,

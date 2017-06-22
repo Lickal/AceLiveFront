@@ -26,7 +26,7 @@ webService.factory('webService', ['$http', function($http) {
         };
 
         return {
-          URLserveur : "http://localhost:8080/acelive/webresources/webservices",
+          URLserveur : "http://localhost:8080/acelive/webresources/webservices.",
           // Et les définitions différents WebServices
             Login: function Login(user, successCallback, errorCallback) {
               var wsURL = URLserveur + ".administrateur";

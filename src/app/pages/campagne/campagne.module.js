@@ -31,9 +31,9 @@
             templateUrl: 'app/pages/campagne/editCampagne/editCampagne.html',
             controller: 'EditCampagneCtrl',
             title: 'Modifier la Campagne',
-            sidebarMeta: {
-                order: 2,
-            },
+            params: {
+                id: null
+            }
         })
         .state('campagne.listCampagne', {
             url: '/listCampagne',

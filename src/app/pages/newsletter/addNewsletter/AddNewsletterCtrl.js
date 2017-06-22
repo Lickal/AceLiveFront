@@ -28,7 +28,7 @@
       };
 
       $.ajax({
-         url : webService.URLserveur + '.newsletter',
+         url : webService.URLserveur + 'newsletter',
          type : 'POST',
          contentType: "application/json",
          data : JSON.stringify(newsletter),

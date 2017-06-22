@@ -17,7 +17,7 @@
         var notConnected = true;
 
           $.ajax({
-              url : 'http://localhost:8080/acelive/webresources/webservices.administrateur',
+              url : webService.URLserveur + 'administrateur',
               type : 'GET',
               contentType : 'application/json',
               success : function(data, statut){

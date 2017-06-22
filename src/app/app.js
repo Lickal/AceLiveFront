@@ -15,6 +15,7 @@ angular.module('BlurAdmin', [
 
   'BlurAdmin.theme',
   'BlurAdmin.pages',
+  'UserService',
   'webService',
   'xml2json'
 ]);

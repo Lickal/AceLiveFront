@@ -26,15 +26,6 @@
                 order: 1,
             },
         })
-        .state('auth.register', {
-            url: '/register',
-            templateUrl: 'app/pages/auth/reg/reg.html',
-            controller: 'RegCtrl',
-            title: 'Inscription',
-            sidebarMeta: {
-                order: 1,
-            },
-        })
         ;
   }
 })();

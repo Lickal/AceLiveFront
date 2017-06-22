@@ -6,24 +6,37 @@
         .controller('LoginCtrl', LoginCtrl);
 
     /** @ngInject */
-    function LoginCtrl($scope, $http, $timeout, $element, $state, webService, xml2json) {
+    function LoginCtrl($scope, $http, $timeout, $element, $state, UserService, webService, xml2json) {
 
       $scope.inputUsername = "";
       $scope.inputPassword = "";
 
-      $scope.inscrire = function () {
-        $state.go("auth.register");
-      };
-
       $scope.connect = function () {
 
+        var mdpfalse = false;
+        var notConnected = true;
+
           $.ajax({
-              url : 'http://localhost:8080/acelive/webresources/webservices.users',
+              url : 'http://localhost:8080/acelive/webresources/webservices.administrateur',
               type : 'GET',
-              dataType : 'xml',
+              contentType : 'application/json',
               success : function(data, statut){
                   for (var i = 0; i < data.length; i++) {
-                    data[i]
+                    if (data[i].adminName == $scope.inputUsername || data[i].adminMail == $scope.inputUsername) {
+                      if (data[i].adminPassword == $scope.inputPassword) {
+                        notConnected = false;
+                        UserService.connected = true;
+                        window.open ('dashboard','_self',false)
+                      }else {
+                        mdpfalse = true;
+                      }
+                    }
+                  }
+
+                  if (mdpfalse) {
+                    alert("Mot de passe incorrect !");
+                  }else if (notConnected) {
+                    alert("Identifiant inconnu");
                   }
 
               },

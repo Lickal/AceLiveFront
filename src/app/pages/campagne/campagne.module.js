@@ -14,6 +14,7 @@
             title: 'Campagne',
             sidebarMeta: {
                 icon: 'ion-map',
+                disabled: true,
                 order: 1,
             },
         })

@@ -44,7 +44,6 @@
 
         $scope.create = function () {
 
-            // TODO il faut récupérer les valeurs du form pour les mettre dans ce WS
             var data_campagne = {};
 
             var e = document.getElementById("newsletter");
@@ -62,17 +61,75 @@
             $.ajax({
                 url: webService.URLserveur + 'campaign',
                 type: 'POST',
-                data: data_campagne,
-                async : false,
-                dataType: 'json',
-                success: function (data, statut) { // success est toujours en place, bien sûr !
-                    console.log(data);
+                data: JSON.stringify(data_campagne),
+                contentType: "application/json",
+                success: function (data, statut) {
+                  $.ajax({
+                      url: webService.URLserveur + 'campaign',
+                      type: 'GET',
+                      async : false,
+                      dataType: 'json',
+                      success: function (data, statut) {
+                          for (var i = 0; i < data.length; i++) {
+                            if (data[i].campaignName == $scope.name_campaign) {
+                              $scope.createNewsletterXCampaign(data[i], $scope.multipleSelectedItems);
+                            }
+                          }
+                      },
+                      error: function (resultat, statut, erreur) {
+                          console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                      }
+
+                  });
                 },
                 error: function (resultat, statut, erreur) {
                     console.log("Oups, nous avons constaté l'erreur : " + erreur);
                 }
 
             });
+        };
+
+        $scope.createNewsletterXCampaign = function (campaign, newsletter) {
+
+          for (var i = 0; i < newsletter.length; i++) {
+
+            $.ajax({
+                url: webService.URLserveur + 'newsletter/' + newsletter[i],
+                type: 'GET',
+                dataType: 'json',
+                success: function (data, statut) {
+                  var data_newsletterxcampaign = {
+                    "campaign": campaign,
+                    "newsletter": {
+                      "newsletterId": data.newsletterId,
+                      "newsletterTitle": data.newsletterTitle
+                    },
+                    "newsletterxcampaignPK": {
+                      "campaignId": campaign.campaignId,
+                      "newsletterId": data.newsletterId
+                    }
+                  }
+
+                    $.ajax({
+                        url: webService.URLserveur + 'newsletterxcampaign',
+                        type: 'POST',
+                        data: JSON.stringify(data_newsletterxcampaign),
+                        contentType: "application/json",
+                        success: function (data, statut) {
+                          alert("Good");
+                        },
+                        error: function (resultat, statut, erreur) {
+                            console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                        }
+
+                    });
+                },
+                error: function (resultat, statut, erreur) {
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                }
+
+            });
+          }
         };
     }
 })();

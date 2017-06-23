@@ -5,34 +5,51 @@
         .controller('ListGroupCtrl', ListGroupCtrl);
 
     /** @ngInject */
-    function ListGroupCtrl($scope, $http, $timeout, $element) {
+    function ListGroupCtrl($scope, $http, $timeout, $element, webService, $state) {
 
         $scope.smartTablePageSize = 10;
 
-        $scope.smartTableData = [
-            {
-                id: 1,
-                firstName: 'Mark',
-                lastName: 'Otto',
-                username: '@mdo',
-                age: '28'
-            },
-            {
-                id: 2,
-                firstName: 'Jacob',
-                lastName: 'Thornton',
-                username: '@fat',
-                age: '45'
-            },
-            {
-                id: 3,
-                firstName: 'Larry',
-                lastName: 'Bird',
-                username: '@twitter',
-                age: '18'
-            }
-        ];
+        $scope.smartTableData = [];
 
-        $scope.editableTableData = $scope.smartTableData.slice(0, 36);
+        $scope.listGroup = function () {
+
+            $.ajax({
+                url: webService.URLserveur + 'mailinggroup',
+                type: 'GET',
+                dataType: 'json',
+                async: false,
+                success: function (data, statut) {
+                    $scope.smartTableData = data;
+                },
+                error: function (resultat, statut, erreur) {
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                }
+            });
+        };
+
+        $scope.listGroup();
+
+        $scope.deleteGroup = function (id) {
+
+            $.ajax({
+                url: webService.URLserveur + 'mailinggroup/' + id,
+                type: 'DELETE',
+                dataType: 'json',
+                async: false,
+                success: function (data, statut) {
+                    console.log("Ok ;)");
+                    window.location.reload()
+                },
+                error: function (resultat, statut, erreur) {
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                }
+            });
+        };
+
+        $scope.editGroup = function (id) {
+
+            $state.go("group.editGroup", {id: id});
+
+        };
     }
 })();

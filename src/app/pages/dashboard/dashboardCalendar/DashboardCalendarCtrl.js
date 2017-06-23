@@ -18,7 +18,7 @@
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
       },
-      defaultDate: '2016-03-08',
+      defaultDate: '2017-06-26',
       selectable: true,
       selectHelper: true,
       select: function (start, end) {
@@ -38,24 +38,25 @@
       eventLimit: true, // allow "more" link when too many events
       events: [
         {
-          title: 'All Day Event',
-          start: '2016-03-01',
+          title: 'Lancement newsletter de juillet',
+          start: '2017-07-01',
+          end: '2017-07-10',
           color: dashboardColors.silverTree
         },
         {
-          title: 'Long Event',
-          start: '2016-03-07',
-          end: '2016-03-10',
+          title: 'Passage à l\'oral',
+          start: '2017-06-26',
           color: dashboardColors.blueStone
         },
         {
-          title: 'Dinner',
-          start: '2016-03-14T20:00:00',
+          title: 'Pleurer sur sa note de projet Virtu',
+          start: '2017-06-28T20:00:00',
           color: dashboardColors.surfieGreen
         },
         {
-          title: 'Birthday Party',
-          start: '2016-04-01T07:00:00',
+          title: 'Lancement newsletter de août',
+          start: '2017-08-01',
+          end: '2017-08-10',
           color: dashboardColors.gossipDark
         }
       ]

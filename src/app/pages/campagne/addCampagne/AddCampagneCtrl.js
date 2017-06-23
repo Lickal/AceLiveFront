@@ -116,7 +116,7 @@
                         data: JSON.stringify(data_newsletterxcampaign),
                         contentType: "application/json",
                         success: function (data, statut) {
-                          alert("Good");
+                          console.log("Good");
                         },
                         error: function (resultat, statut, erreur) {
                             console.log("Oups, nous avons constaté l'erreur : " + erreur);

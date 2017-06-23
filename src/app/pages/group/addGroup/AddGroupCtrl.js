@@ -6,7 +6,6 @@
 
     /** @ngInject */
     function AddGroupCtrl($scope, $http, $timeout, $element, webService) {
-        this.test = true;
 
         var valueUsers = [];
 

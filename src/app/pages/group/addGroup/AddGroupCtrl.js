@@ -1,47 +1,49 @@
-
 (function () {
-  'use strict';
+    'use strict';
 
-  angular.module('BlurAdmin.pages.group')
-      .controller('AddGroupCtrl', AddGroupCtrl);
+    angular.module('BlurAdmin.pages.group')
+        .controller('AddGroupCtrl', AddGroupCtrl);
 
-  /** @ngInject */
-  function AddGroupCtrl($scope, $http, $timeout, $element) {
-    this.test = true;
-    $scope.participants = [
-      {
-        id: 1,
-        name: "Patrick",
-        checked: false
-      },{
-        id: 2,
-        name: "René",
-        checked: true
-      },{
-        id: 3,
-        name: "Girard",
-        checked: true
-      },{
-        id: 4,
-        name: "André",
-        checked: true
-      },{
-        id: 5,
-        name: "Eugène",
-        checked: true
-      },{
-        id: 6,
-        name: "Francis",
-        checked: false
-      }
-    ];
+    /** @ngInject */
+    function AddGroupCtrl($scope, $http, $timeout, $element, webService) {
+        this.test = true;
 
+        var valueUsers = [];
 
-    $scope.inscrire = function () {
-      // TODO
-      if (addGroupForm.group01.validity.valid) {
-        console.log("Test");
-      }
-    };
-  }
+        $scope.name_group = "";
+        $scope.multipleSelectedItems = "";
+
+        $scope.list_mail = function () {
+
+            $.ajax({
+                url: webService.URLserveur + 'users',
+                type: 'GET',
+                async: false,
+                dataType: 'json',
+                success: function (data, statut) {
+                    if (data.length) {
+                        for (var i = 0; i < data.length; i++) {
+                            valueUsers[i] = {};
+                            valueUsers[i].label = data[i].userMail;
+                            valueUsers[i].value = i + 1;
+                        }
+                    }
+                    $scope.standardSelectItems = valueUsers;
+                },
+                error: function (resultat, statut, erreur) {
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                }
+            });
+        };
+
+        $scope.list_mail();
+
+        $scope.addGroup = function () {
+            // TODO dans l'attente du add de campagne
+
+            console.log($scope.name_group);
+            console.log($scope.multipleSelectedItems);
+
+        };
+    }
 })();

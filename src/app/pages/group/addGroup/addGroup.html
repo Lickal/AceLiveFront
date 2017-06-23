@@ -1,62 +1,32 @@
 <div class="widgets">
-
-  <div class="row">
-    <div class="col-md-12">
-      <div
-          ba-panel
-          ba-panel-title="Créer un groupe"
-          ba-panel-class="with-scroll">
-          <form name="addGroupForm" ng-controller="AddGroupCtrl">
-            <div class="form-group">
-              <label for="group01">Nom du groupe</label>
-              <input type="text" class="form-control" id="group01" name="group01" placeholder="Nom du groupe" ng-required="true">
+    <div class="row">
+        <div class="col-md-12">
+            <div
+                    ba-panel
+                    ba-panel-title="Créer un groupe"
+                    ba-panel-class="with-scroll">
+                <form name="addGroupForm" ng-controller="AddGroupCtrl">
+                    <div class="form-group">
+                        <label for="name_group">Nom du groupe</label>
+                        <input type="text" class="form-control" ng-model="name_group" id="name_group" name="name_group"
+                               placeholder="Nom du groupe" ng-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="add_users">Veuillez sélectionner les différentes utilisateurs à ajouter dans le
+                            Groupe
+                            * : </label>
+                        <select id="add_users" class="form-control" title="Sélection multiple" multiple selectpicker
+                                ng-model="multipleSelectedItems"
+                                ng-options="item as item.label for item in standardSelectItems track by item.value">
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <input class="btn btn-danger" type="submit" ng-click="addGroup()" value="Ajouter"/>
+                        </span>
+                    </div>
+                </form>
             </div>
-            <br>
-            <div ng-repeat="participant in participants">
-              <div class="has-success">
-                <div class="checkbox">
-                  <label class="custom-checkbox">
-                    <input type="checkbox" id="{{participant.name}}" ng-checked="participant.checked">
-                    <span>{{participant.name}}</span>
-                  </label>
-                </div>
-              </div>
-              <br>
-            </div>
-            <div class="input-group">
-              <span class="input-group-btn">
-                <input class="btn btn-danger" type="submit" ng-click="inscrire()" value="S'inscrire" />
-                  <!-- <button class="btn btn-danger" type="button" ng-click="inscrire()">S'inscrire</button> -->
-              </span>
-            </div>
-            <!-- <div class="form-group">
-              <label for="input03">Rounded Corners</label>
-              <input type="text" class="form-control form-control-rounded" id="input03" placeholder="Rounded Corners">
-            </div>
-            <div class="form-group">
-              <label for="input04">With help</label>
-              <input type="text" class="form-control" id="input04" placeholder="With help">
-              <span class="help-block sub-little-text">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-            </div>
-            <div class="form-group">
-              <label for="input05">Disabled Input</label>
-              <input type="text" class="form-control" id="input05" placeholder="Disabled Input" disabled>
-            </div>
-
-            <div class="form-group">
-              <label for="textarea01">Textarea</label>
-              <textarea placeholder="Default Input" class="form-control" id="textarea01"></textarea>
-            </div>
-
-            <div class="form-group">
-              <input type="text" class="form-control input-sm" id="input2" placeholder="Small Input">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control input-lg" id="input4" placeholder="Large Input">
-            </div> -->
-          </form>
         </div>
-      </div>
     </div>
-
-  </div>
+</div>

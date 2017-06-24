@@ -34,6 +34,7 @@
         $scope.modif = function () {
           var data = {};
             data.campaignDescription = $scope.description_campaign;
+            data.campaignId = $stateParams.id;
             data.campaignName = $scope.name_campaign;
             $.ajax({
                 url: webService.URLserveur + 'campaign/' + $stateParams.id,

@@ -31,9 +31,6 @@
             templateUrl: 'app/pages/group/editGroup/editGroup.html',
             controller: 'EditGroupCtrl',
             title: 'Modifier le Groupe',
-            sidebarMeta: {
-                order: 1,
-            },
         })
         .state('group.listGroup', {
             url: '/listGroup',

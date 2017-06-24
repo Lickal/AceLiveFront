@@ -30,10 +30,7 @@
             url: '/editMail',
             templateUrl: 'app/pages/mail/editMail/editMail.html',
             controller: 'EditMailCtrl',
-            title: 'Modifier la Mail',
-            sidebarMeta: {
-                order: 1,
-            },
+            title: 'Modifier le Mail',
         })
         .state('mail.listMail', {
             url: '/listMail',

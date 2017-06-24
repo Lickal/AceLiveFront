@@ -26,7 +26,7 @@
                       if (data[i].adminPassword == $scope.inputPassword) {
                         notConnected = false;
                         UserService.connected = true;
-                        window.open ('dashboard','_self',false)
+                        window.open ('#/dashboard','_self',false)
                       }else {
                         mdpfalse = true;
                       }

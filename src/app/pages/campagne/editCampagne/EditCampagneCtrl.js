@@ -5,7 +5,7 @@
         .controller('EditCampagneCtrl', EditCampagneCtrl);
 
     /** @ngInject */
-    function EditCampagneCtrl($scope, $http, $timeout, $element, webService, $stateParams) {
+    function EditCampagneCtrl($scope, $http, $timeout, $element, webService, $stateParams, $state) {
 
 
         $scope.detail_campagne = function () {
@@ -28,5 +28,27 @@
         }
 
         $scope.detail_campagne();
+
+
+
+        $scope.modif = function () {
+          var data = {};
+            data.campaignDescription = $scope.description_campaign;
+            data.campaignName = $scope.name_campaign;
+            $.ajax({
+                url: webService.URLserveur + 'campaign/' + $stateParams.id,
+                type: 'PUT',
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                async: false,
+                success: function (data, statut) {
+                  $state.go("campagne.listCampagne");
+                },
+                error: function (resultat, statut, erreur) {
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                }
+            });
+
+        }
     }
 })();

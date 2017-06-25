@@ -20,14 +20,7 @@
                 async: false,
                 dataType: 'json',
                 success: function (data, statut) {
-                    if (data.length) {
-                        for (var i = 0; i < data.length; i++) {
-                            valueUsers[i] = {};
-                            valueUsers[i].label = data[i].userMail;
-                            valueUsers[i].value = i + 1;
-                        }
-                    }
-                    $scope.standardSelectItems = valueUsers;
+                    $scope.standardSelectItems = data;
                 },
                 error: function (resultat, statut, erreur) {
                     console.log("Oups, nous avons constaté l'erreur : " + erreur);
@@ -38,8 +31,21 @@
         $scope.list_mail();
 
         $scope.addGroup = function () {
-            // TODO dans l'attente du add de campagne
-
+          var data = {};
+          data.groupName = $scope.groupName;
+          $.ajax({
+              url: webService.URLserveur + 'mailinggroup',
+              type: 'POST',
+              contentType: "application/json",
+              data: JSON.stringify(data),
+              async: false,
+              success: function (data, statut) {
+                $state.go("group.listGroup");
+              },
+              error: function (resultat, statut, erreur) {
+                  console.log("Oups, nous avons constaté l'erreur : " + erreur);
+              }
+          });
             console.log($scope.name_group);
             console.log($scope.multipleSelectedItems);
 

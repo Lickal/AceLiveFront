@@ -9,7 +9,6 @@
 
 
         $scope.detail_campagne = function () {
-            console.log($stateParams.id);
             $.ajax({
                 url: webService.URLserveur + 'campaign/' + $stateParams.id,
                 type: 'GET',

@@ -46,9 +46,9 @@
             });
         };
 
-        $scope.editGroup = function (id) {
+        $scope.editGroup = function (item) {
 
-            $state.go("group.editGroup", {id: id});
+            $state.go("group.editGroup", {item: item});
 
         };
     }

@@ -31,6 +31,9 @@
             templateUrl: 'app/pages/group/editGroup/editGroup.html',
             controller: 'EditGroupCtrl',
             title: 'Modifier le Groupe',
+            params: {
+                item: null
+            }
         })
         .state('group.listGroup', {
             url: '/listGroup',

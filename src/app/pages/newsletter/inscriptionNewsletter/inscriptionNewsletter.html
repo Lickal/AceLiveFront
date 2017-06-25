@@ -1,45 +1,35 @@
 <div class="widgets">
-
-  <div class="row">
-    <div class="col-md-12">
-      <div
-          ba-panel
-          ba-panel-title="Inscription Newsletter"
-          ba-panel-class="with-scroll">
-          <form name="inscriptionForm" ng-controller="InscriptionNewsletterCtrl">
-            <div class="form-group">
-              <label for="input01">ID</label>
-              <input type="text" class="form-control" name="input01" placeholder="ID" ng-required="true">
+    <div class="row">
+        <div class="col-md-12">
+            <div
+                    ba-panel
+                    ba-panel-title="Créer un groupe"
+                    ba-panel-class="with-scroll">
+                <form ng-controller="InscriptionNewsletterCtrl">
+                  <div class="form-group">
+                      <label for="add_users">Veuillez sélectionner la/les newsletter(s) à ajouter * : </label>
+                      <select id="add_users" class="form-control" title="Sélection multiple" multiple selectpicker
+                              ng-model="multipleSelectedItemsNewsletter"
+                              ng-options="item as item.newsletterTitle for item in standardSelectItemsNewsletter track by item.newsletterTitle">
+                      </select>
+                  </div>
+                    <div class="form-group">
+                        <label for="add_users">Veuillez sélectionner les différentes utilisateurs à ajouter dans le
+                            Groupe
+                            * : </label>
+                        <select id="add_users" class="form-control" title="Sélection multiple" multiple selectpicker
+                                ng-model="multipleSelectedItems"
+                                ng-options="item as item.userMail for item in standardSelectItems track by item.userMail">
+                        </select>
+                    </div>
+                    <div>{{message}}</div>
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <input class="btn btn-danger" type="submit" ng-click="inscrire()" value="Ajouter"/>
+                        </span>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-              <label for="input02">Nom</label>
-              <input type="text" class="form-control" name="input02" placeholder="Nom" ng-required="true">
-            </div>
-            <div class="form-group">
-              <label for="input03">Age</label>
-              <input type="text" class="form-control" name="input03" placeholder="Age" ng-required="true">
-            </div>
-            <br>
-            <div ng-repeat="newsletter in newsletters">
-              <div class="has-success">
-                <div class="checkbox">
-                  <label class="custom-checkbox">
-                    <input type="checkbox" id="{{newsletter.name}}" ng-checked="newsletter.checked">
-                    <span>{{newsletter.name}}</span>
-                  </label>
-                </div>
-              </div>
-              <br>
-            </div>
-            <div class="input-group">
-              <span class="input-group-btn">
-                <input class="btn btn-danger" type="submit" ng-click="inscrire()" value="S'inscrire" />
-                  <!-- <button class="btn btn-danger" type="button" ng-click="inscrire()">S'inscrire</button> -->
-              </span>
-            </div>
-          </form>
         </div>
-      </div>
     </div>
-
-  </div>
+</div>

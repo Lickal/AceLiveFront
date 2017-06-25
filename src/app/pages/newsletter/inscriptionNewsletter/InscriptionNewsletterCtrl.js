@@ -7,48 +7,73 @@
 
   /** @ngInject */
   function InscriptionNewsletterCtrl($scope, $http, $timeout, $element, webService) {
-    this.test = true;
-    $scope.newsletters = [
-      {
-        id: 1,
-        name: "Newsletter d'inscription à la ferme des petits enfants géniaux",
-        checked: false
-      },{
-        id: 2,
-        name: "Newsletter 2",
-        checked: true
-      },{
-        id: 3,
-        name: "Newsletter 3",
-        checked: true
-      },{
-        id: 4,
-        name: "Newsletter 4",
-        checked: true
-      },{
-        id: 5,
-        name: "Newsletter 5",
-        checked: true
-      }
-    ];
+
+    $scope.multipleSelectedItemsNewsletter;
+    $scope.multipleSelectedItems;
+
+    $scope.list_mail = function () {
+
+        $.ajax({
+            url: webService.URLserveur + 'users',
+            type: 'GET',
+            async: false,
+            dataType: 'json',
+            success: function (data, statut) {
+                $scope.standardSelectItems = data;
+            },
+            error: function (resultat, statut, erreur) {
+                console.log("Oups, nous avons constaté l'erreur : " + erreur);
+            }
+        });
+    };
+
+    $scope.list_mail();
+
+    $scope.list_newsletter = function () {
+
+        $.ajax({
+            url: webService.URLserveur + 'newsletter',
+            type: 'GET',
+            async: false,
+            dataType: 'json',
+            success: function (data, statut) {
+                $scope.standardSelectItemsNewsletter = data;
+            },
+            error: function (resultat, statut, erreur) {
+                console.log("Oups, nous avons constaté l'erreur : " + erreur);
+            }
+        });
+    };
+
+    $scope.list_newsletter();
 
 
     $scope.inscrire = function () {
-      // TODO
-      var user = {};
-      user.username = "toto";
-      user.password = "motdepasse";
-      webService.Login(user,
-        function (data) {
-          console.log("ca a marché !! Youpi, mes données sont dans la variable data :)");
-        },
-        function () {
-          console.log("Oups, erreur");
+      $scope.message = "";
+      var dataS = {};
+      for (var i = 0; i < $scope.multipleSelectedItemsNewsletter.length; i++) {
+        for (var j = 0; j < $scope.multipleSelectedItems.length; j++) {
+          dataS.newsletter = $scope.multipleSelectedItemsNewsletter[i];
+          dataS.users = $scope.multipleSelectedItems[j];
+          dataS.subscriptionPK = {};
+          dataS.subscriptionPK.newsletterId = $scope.multipleSelectedItemsNewsletter[i].newsletterId;
+          dataS.subscriptionPK.userMail = $scope.multipleSelectedItems[i].userMail;
+          $.ajax({
+              url: webService.URLserveur + 'subscription',
+              type: 'POST',
+              contentType: "application/json",
+              data: JSON.stringify(dataS),
+              async: false,
+              success: function (data, statut) {
+                $scope.message += "\r\n" + "OK pour " + dataS.users.userMail + " avec la newsletter " + dataS.newsletter.newsletterTitle;
+              },
+              error: function (resultat, statut, erreur) {
+                  $scope.message += "\r\n" + dataS.users.userMail + " est déjà inscrit à la newsletter " + dataS.newsletter.newsletterTitle;
+              }
+          });
         }
-      );
-      if (inscriptionForm.input01.validity.valid && inscriptionForm.input02.validity.valid && inscriptionForm.input03.validity.valid) {
-        console.log("Test");
       }
+
     };
   }
 })();

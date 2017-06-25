@@ -16,10 +16,10 @@
           templateUrl: 'app/pages/maps/maps.html',
           abstract: true,
           title: 'Exemple : Maps',
-          sidebarMeta: {
-            icon: 'ion-ios-location-outline',
-            order: 500,
-          },
+          // sidebarMeta: {
+          //   icon: 'ion-ios-location-outline',
+          //   order: 500,
+          // },
         })
         .state('maps.gmap', {
           url: '/gmap',

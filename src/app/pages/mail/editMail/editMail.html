@@ -1,12 +1,29 @@
 <div class="widgets">
     <div class="row">
         <div class="col-md-12">
-            <div ba-panel ba-panel-title="Standard Fields" ba-panel-class="with-scroll">
-
-
-
-
-            </div>
+          <div ba-panel ba-panel-title="Edit Mail" ba-panel-class="with-scroll">
+              <form ng-controller="EditMailCtrl">
+                  <div class="form-group">
+                      <label for="nom_mail">Nom</label>
+                      <input type="text" class="form-control" id="nom_mail" ng-model="nom_mail" ng-required="true">
+                  </div>
+                  <div class="form-group">
+                      <label for="nom_mail">Prenom</label>
+                      <input type="text" class="form-control" id="prenom_mail" ng-model="prenom_mail" ng-required="true">
+                  </div>
+                  <div class="form-group">
+                      <label for="nom_mail">Age</label>
+                      <input type="text" class="form-control" id="age_mail" ng-model="age_mail" ng-required="true">
+                  </div>
+                  <div class="form-group">
+                      <label for="mail_mail">Email</label>
+                      <input type="email" class="form-control" id="mail_mail" ng-model="mail_mail" ng-required="true">
+                  </div>
+                  <span class="input-group-btn">
+                      <input class="btn btn-danger" type="submit" ng-click="edit()" value="Modifier" />
+                </span>
+              </form>
+          </div>
         </div>
     </div>
 

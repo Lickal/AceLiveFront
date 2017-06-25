@@ -5,34 +5,49 @@
         .controller('ListNewsletterCtrl', ListNewsletterCtrl);
 
     /** @ngInject */
-    function ListNewsletterCtrl($scope, $http, $timeout, $element) {
+    function ListNewsletterCtrl($scope, $http, $timeout, $element, webService, $state) {
 
         $scope.smartTablePageSize = 10;
 
-        $scope.smartTableData = [
-            {
-                id: 1,
-                firstName: 'Mark',
-                lastName: 'Otto',
-                username: '@mdo',
-                age: '28'
-            },
-            {
-                id: 2,
-                firstName: 'Jacob',
-                lastName: 'Thornton',
-                username: '@fat',
-                age: '45'
-            },
-            {
-                id: 3,
-                firstName: 'Larry',
-                lastName: 'Bird',
-                username: '@twitter',
-                age: '18'
-            }
-        ];
 
-        $scope.editableTableData = $scope.smartTableData.slice(0, 36);
+        $scope.listNewsletter = function () {
+
+            $.ajax({
+                url: webService.URLserveur + 'newsletter',
+                type: 'GET',
+                dataType: 'json',
+                async: false,
+                success: function (data, statut) {
+                    $scope.smartTableData = data;
+                },
+                error: function (resultat, statut, erreur) {
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                }
+            });
+        };
+
+        $scope.listNewsletter();
+
+        $scope.deleteNewsletter = function (id) {
+
+            $.ajax({
+                url: webService.URLserveur + 'newsletter/' + id,
+                type: 'DELETE',
+                dataType: 'json',
+                async: false,
+                success: function (data, statut) {
+                    window.location.reload()
+                },
+                error: function (resultat, statut, erreur) {
+                    console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                }
+            });
+        };
+
+        $scope.editNewsletter = function (item) {
+
+            $state.go("newsletter.editNewsletter", {item: item});
+
+        };
     }
 })();

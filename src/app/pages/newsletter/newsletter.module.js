@@ -31,9 +31,9 @@
             templateUrl: 'app/pages/newsletter/editNewsletter/editNewsletter.html',
             controller: 'EditNewsletterCtrl',
             title: 'Modifier la Newsletter',
-            sidebarMeta: {
-                order: 1,
-            },
+            params: {
+                item: null
+            }
         })
         .state('newsletter.listNewsletter', {
             url: '/listNewsletter',

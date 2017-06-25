@@ -31,6 +31,9 @@
             templateUrl: 'app/pages/mail/editMail/editMail.html',
             controller: 'EditMailCtrl',
             title: 'Modifier le Mail',
+            params: {
+                mail: null
+            }
         })
         .state('mail.listMail', {
             url: '/listMail',

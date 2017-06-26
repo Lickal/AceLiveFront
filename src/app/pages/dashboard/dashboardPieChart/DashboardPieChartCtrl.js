@@ -78,11 +78,11 @@
                       }, {
                         color: pieColor,
                         description: 'Clics générés',
-                        stats: '89,745',
+                        stats: '32',
                         icon: 'navigate',
                       }, {
                         color: pieColor,
-                        description: 'Nombre d\'utilisateurs',
+                        description: 'Nombre d\'users',
                         stats: nbUsers+'',
                         icon: 'contacts',
                       }, {

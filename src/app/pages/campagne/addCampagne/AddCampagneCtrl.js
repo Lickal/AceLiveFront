@@ -5,7 +5,7 @@
         .controller('AddCampagneCtrl', AddCampagneCtrl);
 
     /** @ngInject */
-    function AddCampagneCtrl($scope, $http, $timeout, $element, webService) {
+    function AddCampagneCtrl($scope, $http, $timeout, $element, webService, $state) {
 
         var valueNews = [];
 
@@ -75,6 +75,7 @@
                               $scope.createNewsletterXCampaign(data[i], $scope.multipleSelectedItems);
                             }
                           }
+                          $state.go("campagne.listCampagne");
                       },
                       error: function (resultat, statut, erreur) {
                           console.log("Oups, nous avons constaté l'erreur : " + erreur);

@@ -1,21 +1,29 @@
 <div class="widgets">
     <div class="row">
-        <form name="editCampagnepForm" ng-controller="EditNewsletterCtrl">
-            <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="name_campagne">Nom de la newsletter * : </label>
-                        <input type="text" ng-model="newsletterTitle" class="form-control" id="newsletterTitle" name="newsletterTitle"
-                               ng-required="true">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Description * : </label>
-                        <textarea ng-model="newsletterDescription" class="form-control" id="message" rows="3"
-                                  ></textarea>
-                    </div>
-            </div>
-                    <span class="input-group-btn">
-                    <input class="btn btn-danger" type="submit" ng-click="modif()" value="Valider"/>
+        <div class="col-md-12">
+            <form name="editCampagnepForm" ng-controller="EditNewsletterCtrl">
+                <div class="form-group">
+                    <label for="newsletterTitle">Objet *</label>
+                    <input type="text" ng-model="newsletterTitle" class="form-control" id="newsletterTitle" name="newsletterTitle" placeholder="Exemple : Evènement pétanque" ng-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="date_newsletter">Date d'envoie *</label>
+                    <input type="date" ng-model="date_newsletter" class="form-control" id="date_newsletter" name="date_newsletter" placeholder="" ng-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="newsletterPJ">Pièce Jointe</label>
+                    <input type="file" ng-model="newsletterPJ" class="form-control" id="newsletterPJ" name="newsletterPJ" placeholder="" ng-required="false">
+                </div>
+                <div class="form-group">
+                    <label for="newsletterDescription">Description *</label>
+                    <textarea ng-model="newsletterDescription" class="form-control" id="newsletterDescription" rows="3"
+                    ></textarea>
+                </div>
+                <span class="input-group-btn">
+                    <input class="btn btn-danger" type="submit" ng-click="modif()" value="Modifier"/>
                   </span>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
+

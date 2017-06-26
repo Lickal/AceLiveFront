@@ -10,7 +10,6 @@
     </div>
     <div class="text-block text-message">
       <div class="message-header">
-        <span class="author">{{ ::message.author }} {{ ::message.surname}}</span>
       </div>
       <div class="message-content line-clamp" ng-class="{'line-clamp-2' : !message.expanded}">
         <span ng-if="message.preview">{{message.header}} </span>{{::message.text}}

@@ -5,7 +5,7 @@
       .controller('AddNewsletterCtrl', AddNewsletterCtrl);
 
   /** @ngInject */
-  function AddNewsletterCtrl($scope, $http, $timeout, $element, webService, xml2json) {
+  function AddNewsletterCtrl($scope, $http, $timeout, $element, webService, $state) {
 
     $scope.objet_newsletter = "";
     $scope.date_newsletter;
@@ -34,6 +34,7 @@
          data : JSON.stringify(newsletter),
          success : function(data, statut){ // success est toujours en place, bien sûr !
            console.log("OK !");
+           $state.go("newsletter.listNewsletter");
          },
 
          error : function(resultat, statut, erreur){

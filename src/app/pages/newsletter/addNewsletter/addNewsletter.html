@@ -17,9 +17,9 @@
                     </div>
                     <div class="form-group">
                         <label for="description_newsletter">Description *</label>
-                        <input type="text" ng-model="description_newsletter" class="form-control" id="description_newsletter" name="description_newsletter" placeholder="" ng-required="true">
+                        <textarea ng-model="description_newsletter" class="form-control" id="description_newsletter" rows="3"
+                        ></textarea>
                     </div>
-
                     <span class="input-group-btn">
                         <input class="btn btn-danger" type="submit" ng-click="createNewsletter()" value="Valider" />
                     </span>

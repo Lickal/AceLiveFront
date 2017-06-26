@@ -1,7 +1,3 @@
-/**
- * @author p.maslava
- * created on 28.11.2016
- */
 (function () {
   'use strict';
 

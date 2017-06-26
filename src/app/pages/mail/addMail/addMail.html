@@ -1,27 +1,16 @@
 <div class="widgets">
     <div class="row">
         <div class="col-md-12">
-
             <div ba-panel ba-panel-title="Ajout de User Mail Via Fichier Excel" ba-panel-class="with-scroll">
-
-
-
-
-
-
-
-
-
-
                 <form ng-controller="AddMailCtrl">
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.js"></script>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                     <script>
                         var oFileIn;
 
-                        $(function() {
+                        $(function () {
                             oFileIn = document.getElementById('my_file_input');
-                            if(oFileIn.addEventListener) {
+                            if (oFileIn.addEventListener) {
                                 oFileIn.addEventListener('change', filePicked, false);
                             }
                         });
@@ -34,54 +23,69 @@
                             // Create A File Reader HTML5
                             var reader = new FileReader();
                             // Ready The Event For When A File Gets Selected
-                            reader.onload = function(e) {
+                            reader.onload = function (e) {
                                 var data = e.target.result;
                                 var cfb = XLS.CFB.read(data, {type: 'binary'});
                                 var wb = XLS.parse_xlscfb(cfb);
 
                                 // Loop Over Each Sheet
-                                wb.SheetNames.forEach(function(sheetName) {
+                                wb.SheetNames.forEach(function (sheetName) {
                                     // Obtain The Current Row As CSV
                                     var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);
-                                    var data = XLS.utils.sheet_to_json(wb.Sheets[sheetName], {header:1});
-                                    $.each(data, function( indexR, valueR ) {
-                                        var sRow = "<tr>";
-                                        $.each(data[indexR], function( indexC, valueC ) {
-                                            sRow = sRow + "<td>" + valueC + "</td>";
+                                    var data = XLS.utils.sheet_to_json(wb.Sheets[sheetName], {header: 1});
+                                    for (var i = 0; i < data.length; i++) {
+                                        var data_import = {};
+                                        data_import.userAge = data[i][2];
+                                        data_import.userMail = data[i][1];
+                                        data_import.userName = data[i][0];
+
+
+                                        $.ajax({
+                                            url: 'http://localhost:8080/aceliveback/webresources/webservices.users',
+                                            type: 'POST',
+                                            contentType: "application/json",
+                                            data: JSON.stringify(data_import),
+                                            async: false,
+                                            success: function (data, statut) {
+                                            },
+                                            error: function (resultat, statut, erreur) {
+                                                console.log("Oups, nous avons constaté l'erreur : " + erreur);
+                                            }
                                         });
-                                        sRow = sRow + "</tr>";
-                                        $("#my_file_output").append(sRow);
-                                    });
+                                    }
+                                    document.location.href="http://localhost:3000/listMail#/mail/listMail"
+                                    ;
                                 });
                             };
-
-                            // Tell JS To Start Reading The File.. You could delay this if desired
                             reader.readAsBinaryString(oFile);
                         }
 
                     </script>
-                    <input type="file" id="my_file_input" />
+                    <label for="my_file_input">Veuillez sélectionner un fichier au format XLS :</label>
+                    <input type="file" id="my_file_input"/>
                     <table id='my_file_output'></table>
-                    <div class="form-group">
 
-                    </div>
-                    <span class="input-group-btn">
-                        <input class="btn btn-danger" type="submit" ng-click="import()" value="Ajouter" />
-                  </span>
                 </form>
             </div>
             <div ba-panel ba-panel-title="Ajout de User Mail à la main" ba-panel-class="with-scroll">
                 <form ng-controller="AddMailCtrl">
                     <div class="form-group">
-                        <label for="nom_mail">Nom</label>
-                        <input type="text" class="form-control" id="nom_mail" name="nom_mail" placeholder="" ng-required="true">
+                        <label for="userName">Nom Prénom</label>
+                        <input type="text" class="form-control" id="userName" name="userName" placeholder=""
+                               ng-required="true">
                     </div>
                     <div class="form-group">
-                        <label for="mail_mail">Email</label>
-                        <input type="email" class="form-control" id="mail_mail" name="mail_mail" placeholder="" ng-required="true">
+                        <label for="userMail">Email</label>
+                        <input type="email" class="form-control" id="userMail" name="userMail" placeholder=""
+                               ng-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="userAge">Age</label>
+                        <input type="number" class="form-control" id="userAge" name="userAge" placeholder=""
+                               ng-required="true">
                     </div>
                     <span class="input-group-btn">
-                        <input class="btn btn-danger" type="submit" ng-click="add_mail()" value="Ajouter" />
+                        <input class="btn btn-danger" type="submit" ng-click="add_mail()" value="Ajouter"/>
                   </span>
                 </form>
             </div>

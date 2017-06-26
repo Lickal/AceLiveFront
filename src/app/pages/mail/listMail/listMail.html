@@ -13,36 +13,30 @@
                     <table class="table" st-table="smartTableData">
                         <thead>
                         <tr class="sortable ">
-                            <th class="table-id" st-sort="id" st-sort-default="true">#</th>
-                            <th st-sort="firstName">Prénom</th>
-                            <th st-sort="lastName">Nom</th>
-                            <th st-sort="username">Mail</th>
-                            <th st-sort="age">Age</th>
-                            <th st-sort="email">Action</th>
+                            <th st-sort="userMail">Mail</th>
+                            <th st-sort="userName">Nom</th>
+                            <th st-sort="userAge">Age</th>
+                            <th st-sort="action">Action</th>
                         </tr>
                         <tr>
-                            <th></th>
-                            <th><input st-search="firstName" placeholder="Rechercer par prénom" class="input-sm form-control search-input"
+                            <th><input st-search="userMail" placeholder="Rechercer par mail" class="input-sm form-control search-input"
                                        type="search"/></th>
-                            <th><input st-search="lastName" placeholder="Rechercer par nom" class="input-sm form-control search-input"
+                            <th><input st-search="userName" placeholder="Rechercer par nom" class="input-sm form-control search-input"
                                        type="search"/></th>
-                            <th><input st-search="username" placeholder="Rechercer par mail" class="input-sm form-control search-input"
+                            <th><input st-search="userAge" placeholder="Rechercer par age" class="input-sm form-control search-input"
                                        type="search"/></th>
-                            <th><input st-search="age" placeholder="Rechercer par age" class="input-sm form-control search-input" type="search"/>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="item in smartTableData">
-                            <td class="table-id">{{item.id}}</td>
-                            <td>{{item.firstName}}</td>
-                            <td>{{item.lastName}}</td>
-                            <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.username}}</a></td>
-                            <td>{{item.age}}</td>
+                            <td class="table-id">{{item.userMail}}</td>
+                            <td>{{item.userName}}</td>
+                            <td>{{item.userAge}}</td>
                             <td>
                                 <div class="buttons" ng-show="!rowform.$visible">
-                                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="edit(item)">Edit</button>
-                                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeUser($index)">Delete</button>
+                                    <button class="btn btn-primary editable-table-button btn-xs" ng-click="edit(item.userMail)">Edit</button>
+                                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="delete(item.userMail)">Delete</button>
                                 </div></td>
                         </tr>
                         </tbody>

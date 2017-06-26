@@ -4,20 +4,16 @@
           <div ba-panel ba-panel-title="Edit Mail" ba-panel-class="with-scroll">
               <form ng-controller="EditMailCtrl">
                   <div class="form-group">
-                      <label for="nom_mail">Nom</label>
-                      <input type="text" class="form-control" id="nom_mail" ng-model="nom_mail" ng-required="true">
+                      <label for="userMail">Email</label>
+                      <input type="email" class="form-control" id="userMail" ng-model="userMail" ng-required="true">
                   </div>
                   <div class="form-group">
-                      <label for="nom_mail">Prenom</label>
-                      <input type="text" class="form-control" id="prenom_mail" ng-model="prenom_mail" ng-required="true">
+                      <label for="userName">Nom Prénom</label>
+                      <input type="text" class="form-control" id="userName" ng-model="userName" ng-required="true">
                   </div>
                   <div class="form-group">
-                      <label for="nom_mail">Age</label>
-                      <input type="text" class="form-control" id="age_mail" ng-model="age_mail" ng-required="true">
-                  </div>
-                  <div class="form-group">
-                      <label for="mail_mail">Email</label>
-                      <input type="email" class="form-control" id="mail_mail" ng-model="mail_mail" ng-required="true">
+                      <label for="userAge">Age</label>
+                      <input type="number" class="form-control" id="userAge" ng-model="userAge" ng-required="true">
                   </div>
                   <span class="input-group-btn">
                       <input class="btn btn-danger" type="submit" ng-click="edit()" value="Modifier" />

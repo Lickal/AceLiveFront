@@ -33,7 +33,7 @@
           data.destinataire = item.subscriptionPK.userMail;
           data.message = item.newsletter.newsletterDescription;
           $.ajax({
-             url : webService.URLserveur + 'mail',
+             url : webService.URLserveurMail + 'mail',
              type : 'POST',
              contentType: "application/json",
              data : JSON.stringify(data),

@@ -1,7 +1,7 @@
 ### Lancement 
 
-npm install dans le dossier du projet
-gulp serv dans le dossier du projet
+- npm install dans le dossier du projet
+- gulp serv dans le dossier du projet
 
 
 
